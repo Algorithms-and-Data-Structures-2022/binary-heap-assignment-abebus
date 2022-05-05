@@ -47,7 +47,7 @@ namespace assignment {
     // 3. Вызовите операцию sift_up над индексом вставленного элемента.
     data_[size_] = Node(key, value);
     size_ ++;
-    sift_up(size_--);
+    sift_up(size_-1);
     return true;
   }
 
@@ -64,9 +64,7 @@ namespace assignment {
     // 3. Уменьшите размер двоичной кучи.
     // 4. Вызовите функцию "спуска" узлов heapify над индексом корня.
     int value = data_[0].value;
-    Node last = data_[size_--];
-    data_[0].key = last.key;
-    data_[0].value = last.value;
+    data_[0] = data_[size_ - 1];
     size_--;
     heapify(0);
     return value;
